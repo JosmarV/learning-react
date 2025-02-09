@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react"
 import { useVerseReference } from "./hooks/useVerseReference.js"
-
-const IMAGE_END_POINT = 'https://picsum.photos/410'
+import { useVerseImage } from "./hooks/useVerseImage.js"
 
 function App() {
-  const {verse, reference, refreshVerse} = useVerseReference()
-  const [randomImage, setRandomImage] = useState()
-
-  useEffect(() => {
-    setRandomImage(IMAGE_END_POINT)
-  }, [verse])
+  const { verse, reference, refreshVerse } = useVerseReference()
+  const { randomImage } = useVerseImage({ verse })
 
   const handleClick = () => {
     refreshVerse()
