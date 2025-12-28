@@ -2,7 +2,7 @@ import { useState } from "react"
 import confetti from "canvas-confetti"
 
 import { TURNS } from "./constants.js"
-import { Square } from "../../../projects/02-la-viejita/src/components/Square.jsx"
+import { Square } from "./components/Square.jsx"
 import { checkWinnerFrom, checkEndGame} from "./logic/checkWinner4EnRaya.js"
 import { WinnersModal } from "./components/WinnerModal.jsx"
 
