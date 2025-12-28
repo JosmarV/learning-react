@@ -31,6 +31,9 @@ jobs:
           mkdir -p ../../public/02-random-bible-verses
           cp -r dist/* ../../public/02-random-bible-verses/
 
+      - name: Copy Main Index
+        run: cp index.html public/index.html
+        
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
