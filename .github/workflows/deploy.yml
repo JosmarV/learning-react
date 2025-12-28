@@ -24,7 +24,7 @@ jobs:
 
       - name: Install and Build Proyecto 2 (02-random-bible-verses)
         run: |
-          cd exercises/02-random-bible-verses # Asegúrate de que la ruta sea correcta (projects)
+          cd exercises/02-random-bible-verses # Asegúrate de que la ruta sea correcta
           npm install # INSTALA dependencias aquí
           npm run build
           # Mueve los archivos compilados a la carpeta pública
