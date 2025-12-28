@@ -4,7 +4,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: write # Asegúrate de que este permiso esté activo
 
 jobs:
   build-and-deploy:
@@ -13,24 +13,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install and Build Proyecto 1
+      - name: Install and Build Proyecto 1 (01-4-en-raya)
         run: |
-          cd exercises/01-4-en-raya
-          npm install
+          cd exercises/01-4-en-raya # Asegúrate de que la ruta sea correcta (ejercicios o exercises)
+          npm install # INSTALA dependencias aquí
           npm run build
-          mkdir -p ../../public/exercise/01-4-en-raya
-          cp -r dist/* ../../public/exercises/01-4-en-rata/
+          # Mueve los archivos compilados a la carpeta pública
+          mkdir -p ../../../public/01-4-en-raya
+          cp -r dist/* ../../../public/01-4-en-raya/
 
-      - name: Install and Build Proyecto 2
+      - name: Install and Build Proyecto 2 (02-random-bible-verses)
         run: |
-          cd exercises/02-random-bible-verse
-          npm install
+          cd exercises/02-random-bible-verses # Asegúrate de que la ruta sea correcta (projects)
+          npm install # INSTALA dependencias aquí
           npm run build
-          mkdir -p ../../public/exercises/02-random-bible-verse
-          cp -r dist/* ../../public/exercises/02-random-bible-verse
+          # Mueve los archivos compilados a la carpeta pública
+          mkdir -p ../../../public/02-random-bible-verses
+          cp -r dist/* ../../../public/02-random-bible-verses
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: public # Sube la carpeta unificada que creamos arriba
+          folder: public
           branch: gh-pages
