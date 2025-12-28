@@ -1,0 +1,36 @@
+name: Deploy Multi-Project
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install and Build Proyecto 1
+        run: |
+          cd exercises/01-4-en-raya
+          npm install
+          npm run build
+          mkdir -p ../../public/exercise/01-4-en-raya
+          cp -r dist/* ../../public/exercises/01-4-en-rata/
+
+      - name: Install and Build Proyecto 2
+        run: |
+          cd exercises/02-random-bible-verse
+          npm install
+          npm run build
+          mkdir -p ../../public/exercises/02-random-bible-verse
+          cp -r dist/* ../../public/exercises/02-random-bible-verse
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: public # Sube la carpeta unificada que creamos arriba
+          branch: gh-pages
