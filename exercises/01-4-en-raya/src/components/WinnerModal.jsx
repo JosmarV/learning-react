@@ -1,4 +1,4 @@
-import { Square } from "../../../../projects/02-la-viejita/src/components/Square"
+import { Square } from "./Square"
 
 export function WinnersModal ({winner, resetGame}) {
     if (winner === null) return null
